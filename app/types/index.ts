@@ -21,3 +21,24 @@ export interface CustomButtonProps{
     
 
 }
+
+export interface User{
+    id: number
+	name: string
+	email: string
+	username: string
+}
+
+export interface Album{
+
+    userId: number
+	id: number
+	title: string
+
+}
+
+export interface Photo{
+    url:string,
+    albumId:number,
+    title:string
+}

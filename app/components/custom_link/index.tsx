@@ -32,7 +32,10 @@ const CustomLink = ({
 
 		default:
 			return (
-				<Link href={href} className=" px-4 py-2 text-sm hover:underline   ">
+				<Link
+					href={href}
+					className=" px-4 py-2 text-sm hover:underline  text-primary  "
+				>
 					{label}
 				</Link>
 			)

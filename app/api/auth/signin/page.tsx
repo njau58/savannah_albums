@@ -31,7 +31,7 @@ export default function SignInPage() {
 	}
 
 	return (
-		<div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-50 to-purple-50">
+		<div className="min-h-screen flex items-center justify-center p-4 ">
 			<div className="bg-white/90 rounded-2xl shadow-md overflow-hidden w-full max-w-md ">
 				<div className="bg-primary p-6 text-center">
 					<div className="flex justify-center mb-2">

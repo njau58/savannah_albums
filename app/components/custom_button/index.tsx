@@ -1,5 +1,6 @@
 import { CustomButtonProps } from "@/app/types"
-import { ClipLoader } from "react-spinners"
+
+import { Loader } from "../spinners"
 
 const CustomButton = ({
 	label,
@@ -15,11 +16,11 @@ const CustomButton = ({
 				<button
 					onClick={onClick}
 					disabled={!!loading}
-					className="w-full bg-white border border-gray-200 hover:border-gray-300 text-gray-800 font-medium py-3 px-4 rounded-full flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
+					className="w-full bg-white border border-gray-200 text-sm hover:border-gray-300 text-gray-800 font-medium py-3 px-4 rounded-full flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
 					{...props}
 				>
 					{loading === "google" ? (
-						<ClipLoader size={20} color="#3B82F6" />
+						<Loader />
 					) : (
 						<>
 							<span className="text-red-500 text-xl">{icon}</span>
@@ -33,11 +34,11 @@ const CustomButton = ({
 				<button
 					onClick={onClick}
 					disabled={!!loading}
-					className="w-full bg-gray-800 hover:bg-gray-900 text-white font-medium py-3 px-4 rounded-full flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
+					className="w-full bg-gray-800 hover:bg-gray-900 text-white text-sm font-medium py-3 px-4 rounded-full flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
 					{...props}
 				>
 					{loading === "github" ? (
-						<ClipLoader size={20} color="#FFFFFF" />
+						<Loader />
 					) : (
 						<>
 							<span className="text-white text-xl">{icon}</span>
@@ -50,7 +51,7 @@ const CustomButton = ({
 			return (
 				<button
 					onClick={onClick}
-					className="w-full bg-transparent hover:bg-white/10 text-white  border font-medium py-3 px-4 rounded-full flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
+					className="w-full bg-transparent hover:bg-white/10 text-white  border font-medium text-sm py-2 px-4 rounded-full flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
 					{...props}
 				>
 					<span className="text-white text-xl">{icon}</span>

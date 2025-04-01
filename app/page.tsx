@@ -2,7 +2,7 @@ import CustomLink from "./components/custom_link"
 
 export default function Home() {
 	return (
-		<div className="h-screen flex items-center justify-center py-36 bg-gradient-to-br from-blue-50 to-gray-100">
+		<div className="h-screen flex items-center justify-center py-36 ">
 			<main className="container mx-auto px-6 py-16">
 				<div className="flex flex-col items-center text-center">
 					<h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">

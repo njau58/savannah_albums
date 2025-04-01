@@ -6,6 +6,7 @@ import Footer from "./components/footer"
 import ClientSessionProvider from "./providers/client_session_provider"
 import type { Session } from "next-auth"
 import { Toaster } from "sonner"
+import ReactQueryProvider from "./providers/react_query_provider"
 
 const jost = Jost({ subsets: ["latin"] })
 
@@ -24,12 +25,14 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${jost.className}`}>
-				<ClientSessionProvider session={session}>
-					<NavBar />
-					{children}
-					<Footer />
-					<Toaster />
-				</ClientSessionProvider>
+				<ReactQueryProvider>
+					<ClientSessionProvider session={session}>
+						<NavBar />
+						{children}
+						<Footer />
+						<Toaster />
+					</ClientSessionProvider>
+				</ReactQueryProvider>
 			</body>
 		</html>
 	)

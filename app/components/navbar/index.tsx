@@ -5,12 +5,13 @@ import CustomLink from "../custom_link"
 import { useSession, signOut } from "next-auth/react"
 import { toast } from "sonner"
 import CustomButton from "../custom_button"
+import Link from "next/link"
 
 const NavBar: React.FC = () => {
 	const { data: session, status } = useSession()
 
 	console.log("User session", session)
-	console.log("User session", status)
+	console.log("session status", status)
 	const handleSignOut = async () => {
 		try {
 			await signOut({ redirect: false })
@@ -21,14 +22,17 @@ const NavBar: React.FC = () => {
 		}
 	}
 	return (
-		<nav className=" mx-auto px-6 py-4 bg-primary top-0 fixed z-50 w-full">
-			<div className=" w-full max-w-7xl mx-auto flex items-center justify-between">
-				<div className="lg:text-2xl text-xl font-bold text-white">
+		<nav className="mx-auto px-6 py-4 bg-primary top-0 fixed z-50 w-full">
+			<div className="w-full max-w-7xl mx-auto flex items-center justify-between">
+				<Link
+					href="/"
+					className="lg:text-2xl text-xl font-bold text-white hover:underline cursor-pointer"
+				>
 					Savannah Albums
-				</div>
+				</Link>
+
 				{session ? (
 					<div>
-						{" "}
 						<CustomButton
 							theme="secondary"
 							onClick={handleSignOut}
