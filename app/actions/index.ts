@@ -14,3 +14,7 @@ export async function fetchUsers(): Promise<User[]> {
     if (!response.ok) throw new Error("Failed to fetch albums")
     return response.json()
   }
+
+
+
+  

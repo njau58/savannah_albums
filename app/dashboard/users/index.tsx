@@ -1,13 +1,13 @@
 "use client"
-import { FaImages, FaArrowRight } from "react-icons/fa"
+import { FaImages, FaArrowRight, FaExclamationTriangle } from "react-icons/fa"
 import { Loader } from "../../components/spinners"
 import CustomLink from "../../components/custom_link"
 
 import { User } from "@/app/types"
-import { useUserServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
+import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
 
 export default function Users() {
-	const { usersQuery, albumsQuery } = useUserServerActionsQuery()
+	const { usersQuery, albumsQuery } = useServerActionsQuery()
 
 	const getUserAlbumCount = (userId: number) => {
 		return (
@@ -28,9 +28,20 @@ export default function Users() {
 		)
 	if (error)
 		return (
-			<div className="text-red-500 text-center py-8">
-				{" "}
-				{error instanceof Error ? error.message : "An unknown error occurred"}
+			<div className=" flex items-center justify-center w-full">
+				<div className="flex items-center flex-col  justify-center">
+					<FaExclamationTriangle className="mx-auto text-yellow-400 mb-1" />
+					<p className="text-sm mb-2">Failed to load data</p>
+					<button
+						onClick={() => {
+							usersQuery.refetch()
+							albumsQuery.refetch()
+						}}
+						className="text-xs bg-white/20 border border-primary hover:bg-white/30 px-3 py-1 rounded-md transition"
+					>
+						Retry
+					</button>
+				</div>
 			</div>
 		)
 
