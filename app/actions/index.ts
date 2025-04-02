@@ -1,4 +1,6 @@
 
+'use server'
+
 import { Album, User } from "../types"
 
 export async function fetchUsers(): Promise<User[]> {

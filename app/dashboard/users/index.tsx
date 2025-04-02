@@ -1,35 +1,24 @@
 "use client"
 import { FaImages, FaArrowRight } from "react-icons/fa"
-import { Loader } from "../spinners"
-import CustomLink from "../custom_link"
-import { useQuery } from "@tanstack/react-query"
-import { fetchAlbums, fetchUsers } from "@/app/services"
+import { Loader } from "../../components/spinners"
+import CustomLink from "../../components/custom_link"
+
+import { User } from "@/app/types"
+import { useUserServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
 
 export default function Users() {
-	const {
-		data: users,
-		isLoading: usersLoading,
-		error: usersError,
-	} = useQuery({
-		queryKey: ["users"],
-		queryFn: fetchUsers,
-	})
-	const {
-		data: albums,
-		isLoading: albumsLoading,
-		error: albumsError,
-	} = useQuery({
-		queryKey: ["albums"],
-		queryFn: fetchAlbums,
-	})
+	const { usersQuery, albumsQuery } = useUserServerActionsQuery()
 
 	const getUserAlbumCount = (userId: number) => {
-		return albums && albums.filter((album) => album.userId === userId).length
+		return (
+			albumsQuery.data &&
+			albumsQuery.data.filter((album) => album.userId === userId).length
+		)
 	}
 
-	const isLoading = usersLoading || albumsLoading
+	const isLoading = usersQuery.isLoading || albumsQuery.isLoading
 
-	const error = usersError || albumsError
+	const error = usersQuery.error || albumsQuery.error
 
 	if (isLoading)
 		return (
@@ -69,8 +58,8 @@ export default function Users() {
 						</tr>
 					</thead>
 					<tbody className="bg-white divide-y divide-gray-200">
-						{users &&
-							users.map((user) => (
+						{usersQuery.data &&
+							usersQuery.data.map((user: User) => (
 								<tr key={user.id} className="hover:bg-gray-50">
 									<td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
 										{user.name}

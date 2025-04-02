@@ -1,6 +1,6 @@
 "use client"
 
-import Users from "../components/users"
+import Users from "./users"
 import { Loader } from "../components/spinners"
 import { useSession } from "next-auth/react"
 import AlbumStats from "./stats/album_stats"

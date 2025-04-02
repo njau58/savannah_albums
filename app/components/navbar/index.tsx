@@ -26,7 +26,7 @@ const NavBar: React.FC = () => {
 			<div className="w-full max-w-7xl mx-auto flex items-center justify-between">
 				<Link
 					href="/"
-					className="lg:text-2xl text-xl font-bold text-white hover:underline cursor-pointer"
+					className="lg:text-2xl border-2 p-1.5 text-lg font-bold text-white "
 				>
 					Savannah Albums
 				</Link>

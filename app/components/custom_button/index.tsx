@@ -38,7 +38,7 @@ const CustomButton = ({
 					{...props}
 				>
 					{loading === "github" ? (
-						<Loader />
+						<Loader color="#fff" />
 					) : (
 						<>
 							<span className="text-white text-xl">{icon}</span>

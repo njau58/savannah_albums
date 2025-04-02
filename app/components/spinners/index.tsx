@@ -1,5 +1,9 @@
 import { PulseLoader } from "react-spinners"
 
-export const Loader = () => {
-	return <PulseLoader color="#351d5b" size={10} />
+type LoaderType = {
+	color?: string
+}
+
+export const Loader = ({ color }: LoaderType) => {
+	return <PulseLoader color={color ? color : "#351d5b"} size={10} />
 }
