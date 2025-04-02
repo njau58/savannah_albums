@@ -3,10 +3,10 @@ import { Jost } from "next/font/google"
 import "./globals.css"
 import NavBar from "./components/navbar"
 import Footer from "./components/footer"
-import ClientSessionProvider from "./providers/client_session_provider"
-import type { Session } from "next-auth"
 import { Toaster } from "sonner"
 import ReactQueryProvider from "./providers/react_query_provider"
+import { getSession } from "next-auth/react"
+import { ClientSessionProvider } from "./providers/client_session_provider"
 
 const jost = Jost({ subsets: ["latin"] })
 
@@ -15,13 +15,12 @@ export const metadata: Metadata = {
 	description: "Assessment",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
-	session,
 }: Readonly<{
 	children: React.ReactNode
-	session: Session | null
 }>) {
+	const session = await getSession()
 	return (
 		<html lang="en">
 			<body className={`${jost.className}`}>

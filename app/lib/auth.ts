@@ -1,6 +1,8 @@
 
 import GoogleProvider from 'next-auth/providers/google';
 import GithubProvider from "next-auth/providers/github"
+import { getServerSession } from 'next-auth';
+
 
 
 
@@ -35,3 +37,10 @@ export const authOptions = {
 
   secret: process.env.NEXTAUTH_SECRET,
 };
+
+export async function getSession() {
+    return await getServerSession(authOptions);
+  }
+
+
+
