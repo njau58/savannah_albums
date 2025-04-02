@@ -42,3 +42,11 @@ export interface Photo{
     albumId:number,
     title:string
 }
+
+export type ErrorMessages = Record<AuthErrorCode, string>
+export type AuthErrorCode =
+    | "Configuration"
+    | "AccessDenied"
+    | "Verification"
+    | "Default"
+    | string
