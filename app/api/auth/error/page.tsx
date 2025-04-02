@@ -1,17 +1,18 @@
 "use client"
 import CustomLink from "@/app/components/custom_link"
 import { useSearchParams } from "next/navigation"
-import { Suspense } from "react"
+
 import { FaExclamationTriangle } from "react-icons/fa"
 import { RiArrowGoBackFill } from "react-icons/ri"
 
-function ErrorContent() {
+export default function ErrorPage() {
 	const params = useSearchParams()
 	const error = params.get("error")
 
 	const errorMessages: Record<string, string> = {
 		Default: "An unexpected error occurred - please try again",
 	}
+
 	return (
 		<div className="min-h-screen b flex items-center justify-center p-6">
 			<div className="bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-md border border-red-100">
@@ -47,19 +48,5 @@ function ErrorContent() {
 				</div>
 			</div>
 		</div>
-	)
-}
-
-export default function ErrorPage() {
-	return (
-		<Suspense
-			fallback={
-				<div className="min-h-screen flex items-center justify-center">
-					<div className="animate-pulse">Loading error details...</div>
-				</div>
-			}
-		>
-			<ErrorContent />
-		</Suspense>
 	)
 }
