@@ -1,33 +1,17 @@
 "use client"
 import CustomLink from "@/app/components/custom_link"
-import { AuthErrorCode, ErrorMessages } from "@/app/types"
-
-import { useEffect, useState } from "react"
+import { useSearchParams } from "next/navigation"
 
 import { FaExclamationTriangle } from "react-icons/fa"
 import { RiArrowGoBackFill } from "react-icons/ri"
 
 export default function ErrorPage() {
-	const [error, setError] = useState<AuthErrorCode | null>(null)
-	const errorMessages: ErrorMessages = {
+	const params = useSearchParams()
+	const error = params.get("error")
+
+	const errorMessages: Record<string, string> = {
 		Default: "An unexpected error occurred - please try again",
-		Configuration: "Server configuration error",
-		AccessDenied: "Access denied",
-		Verification: "Token verification failed",
 	}
-
-	useEffect(() => {
-		if (typeof window !== "undefined") {
-			const params = new URLSearchParams(window.location.search)
-			const errorParam = params.get("error")
-
-			setError(
-				errorParam && errorParam in errorMessages
-					? (errorParam as AuthErrorCode)
-					: "Default"
-			)
-		}
-	}, [])
 
 	return (
 		<div className="min-h-screen b flex items-center justify-center p-6">

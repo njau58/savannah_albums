@@ -5,8 +5,10 @@ import NavBar from "./components/navbar"
 import Footer from "./components/footer"
 import { Toaster } from "sonner"
 import ReactQueryProvider from "./providers/react_query_provider"
-import { getSession } from "next-auth/react"
+
 import { ClientSessionProvider } from "./providers/client_session_provider"
+import { getServerSession } from "next-auth"
+import { authOptions } from "./lib/auth"
 
 const jost = Jost({ subsets: ["latin"] })
 
@@ -20,7 +22,7 @@ export default async function RootLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	const session = await getSession()
+	const session = await getServerSession(authOptions)
 	return (
 		<html lang="en">
 			<body className={`${jost.className}`}>

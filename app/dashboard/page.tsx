@@ -9,6 +9,8 @@ import CustomLink from "../components/custom_link"
 
 export default function DashboardPage() {
 	const { data: session, status } = useSession()
+
+	console.log("session", session)
 	return (
 		<main className="py-24  w-full max-w-7xl px-4 mx-auto">
 			<div className="flex flex-col lg:flex-row gap-8  items-center justify-between mb-8">
