@@ -29,6 +29,20 @@ export const authOptions = {
       
   ],
 
+  debug: process.env.NODE_ENV === 'development',
+  logger: {
+ 
+
+    error
+    (code:any,   // eslint-disable-line @typescript-eslint/no-explicit-any
+         
+        metadata:any // eslint-disable-line @typescript-eslint/no-explicit-any
+    ) {
+      console.error(code, metadata)
+    },
+  },
+  
+
 
   pages: {
     signIn: '/auth/signin',  
