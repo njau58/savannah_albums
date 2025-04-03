@@ -16,5 +16,28 @@ export async function fetchUsers(): Promise<User[]> {
   }
 
 
+  export async function getUser (user_id:number) {
+
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${user_id}`)
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch user)`)
+    }
+
+    return response.json()
+  }
+  export async function getUserAlbums(user_id: number) {
+
+
+
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${user_id}/albums`
+    )
+    if (!response.ok) {
+      throw new Error(`Failed to fetch albums`)
+    }
+    return response.json()
+  }
+
 
   

@@ -1,18 +1,19 @@
 "use client"
-import { FaImages, FaArrowRight, FaExclamationTriangle } from "react-icons/fa"
+import { FaImages, FaArrowRight } from "react-icons/fa"
 import { Loader } from "../../components/spinners"
 import CustomLink from "../../components/custom_link"
 
 import { User } from "@/app/types"
 import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
+import FetchErrorComponent from "@/app/components/fetch_error_component"
 
 export default function Users() {
 	const { usersQuery, albumsQuery } = useServerActionsQuery()
 
-	const getUserAlbumCount = (userId: number) => {
+	const getUserAlbumCount = (user_id: number) => {
 		return (
 			albumsQuery.data &&
-			albumsQuery.data.filter((album) => album.userId === userId).length
+			albumsQuery.data.filter((album) => album.userId === user_id).length
 		)
 	}
 
@@ -22,26 +23,20 @@ export default function Users() {
 
 	if (isLoading)
 		return (
-			<div className=" flex items-center justify-center w-full">
+			<div className=" flex items-center justify-center my-16 w-full">
 				<Loader />
 			</div>
 		)
 	if (error)
 		return (
-			<div className=" flex items-center justify-center w-full">
-				<div className="flex items-center flex-col  justify-center">
-					<FaExclamationTriangle className="mx-auto text-yellow-400 mb-1" />
-					<p className="text-sm mb-2">Failed to load data</p>
-					<button
-						onClick={() => {
-							usersQuery.refetch()
-							albumsQuery.refetch()
-						}}
-						className="text-xs bg-white/20 border border-primary hover:bg-white/30 px-3 py-1 rounded-md transition"
-					>
-						Retry
-					</button>
-				</div>
+			<div className=" flex items-center justify-center my-16 w-full">
+				<FetchErrorComponent
+					error_msg="Failed to load data"
+					onClick={() => {
+						usersQuery.refetch()
+						albumsQuery.refetch()
+					}}
+				/>
 			</div>
 		)
 
@@ -88,7 +83,10 @@ export default function Users() {
 										</div>
 									</td>
 									<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-										<CustomLink href={`/users/${user.id}`} label="View ">
+										<CustomLink
+											href={`/dashboard/users/${user.id}`}
+											label="View "
+										>
 											<FaArrowRight className="ml-1" />
 										</CustomLink>
 									</td>

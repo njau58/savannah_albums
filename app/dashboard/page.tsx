@@ -5,7 +5,7 @@ import { Loader } from "../components/spinners"
 import { useSession } from "next-auth/react"
 import AlbumStats from "./stats/album_stats"
 import UserStats from "./stats/user_stats"
-import CustomLink from "../components/custom_link"
+import GoBackButton from "../components/go_back_button"
 
 export default function DashboardPage() {
 	const { data: session, status } = useSession()
@@ -23,7 +23,7 @@ export default function DashboardPage() {
 						</div>
 					)}
 					<div>
-						<CustomLink href="/" label="Back to Home Page" theme="primary" />
+						<GoBackButton />
 					</div>
 				</>
 			</div>

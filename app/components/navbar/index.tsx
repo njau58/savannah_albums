@@ -22,8 +22,8 @@ const NavBar: React.FC = () => {
 		}
 	}
 	return (
-		<nav className="mx-auto px-6 py-4 bg-primary top-0 fixed z-50 w-full">
-			<div className="w-full max-w-7xl mx-auto flex items-center justify-between">
+		<nav className="mx-auto px-4 py-4 bg-primary top-0 fixed z-50 w-full">
+			<div className="w-full lg:px-2  max-w-7xl mx-auto flex items-center justify-between">
 				<Link
 					href="/"
 					className="lg:text-2xl border-2 p-1.5 text-lg font-bold text-white "

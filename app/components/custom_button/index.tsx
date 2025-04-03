@@ -8,6 +8,7 @@ const CustomButton = ({
 	loading,
 	theme,
 	icon,
+	className,
 	...props
 }: CustomButtonProps) => {
 	switch (theme) {
@@ -55,6 +56,13 @@ const CustomButton = ({
 					{...props}
 				>
 					<span className="text-white text-xl">{icon}</span>
+					{label}
+				</button>
+			)
+		case "custom":
+			return (
+				<button onClick={onClick} className={`${className}`} {...props}>
+					<span className=" text-xl">{icon}</span>
 					{label}
 				</button>
 			)

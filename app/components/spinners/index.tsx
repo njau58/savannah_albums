@@ -5,5 +5,5 @@ type LoaderType = {
 }
 
 export const Loader = ({ color }: LoaderType) => {
-	return <PulseLoader color={color ? color : "#351d5b"} size={10} />
+	return <PulseLoader color={color ? color : "#351d5b"} size={8} />
 }

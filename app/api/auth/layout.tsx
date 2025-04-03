@@ -1,3 +1,4 @@
+import { Loader } from "@/app/components/spinners"
 import { Suspense } from "react"
 
 export default function AuthLayout({
@@ -15,7 +16,7 @@ export default function AuthLayout({
 function AuthLoading() {
 	return (
 		<div className="min-h-screen flex items-center justify-center">
-			<div className="animate-pulse">Loading authentication...</div>
+			<Loader />
 		</div>
 	)
 }

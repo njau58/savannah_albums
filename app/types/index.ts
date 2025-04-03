@@ -14,7 +14,8 @@ export  interface CustomLinkProps extends React.ButtonHTMLAttributes<HTMLHtmlEle
 export interface CustomButtonProps{
     label:string,
     theme :"primary" | "secondary" | "google" | "github" | "custom"
-    onClick:()=>void
+    onClick:()=>void,
+    className?:string,
     icon?:React.ReactNode,
     text_color?:string
     loading?:"github" | "google" |null
@@ -43,10 +44,14 @@ export interface Photo{
     title:string
 }
 
-export type ErrorMessages = Record<AuthErrorCode, string>
-export type AuthErrorCode =
-    | "Configuration"
-    | "AccessDenied"
-    | "Verification"
-    | "Default"
-    | string
+export interface AlbumProps {
+	id: number
+	title: string
+    photo_count?: number
+    userId?: number
+}
+  export interface FetchErrorComponentProps{
+    onClick:()=>void,
+    error_msg:string
+  }
+
