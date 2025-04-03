@@ -16,7 +16,7 @@ export async function fetchUsers(): Promise<User[]> {
   }
 
 
-  export async function getUser (user_id:number) {
+  export async function getUser (user_id:string) {
 
     const response = await fetch(`https://jsonplaceholder.typicode.com/users/${user_id}`)
 
@@ -26,7 +26,7 @@ export async function fetchUsers(): Promise<User[]> {
 
     return response.json()
   }
-  export async function getUserAlbums(user_id: number) {
+  export async function getUserAlbums(user_id: string) {
 
 
 

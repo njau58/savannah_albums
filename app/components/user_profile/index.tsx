@@ -2,7 +2,7 @@
 
 import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
 import GoBackButton from "../go_back_button"
-export default function UserProfile({ user_id }: { user_id: number }) {
+export default function UserProfile({ user_id }: { user_id: string }) {
 	const { userQuery } = useServerActionsQuery(user_id)
 
 	if (userQuery.isLoading) {

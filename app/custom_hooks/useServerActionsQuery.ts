@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchAlbums, fetchUsers, getUser, getUserAlbums } from "../actions";
 
 
-export function useServerActionsQuery(user_id?:number) {
+export function useServerActionsQuery(user_id?:string) {
   const usersQuery = useQuery({
     queryKey: ['users'],
     queryFn: () => fetchUsers(),

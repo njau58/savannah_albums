@@ -2,7 +2,7 @@ import UserAlbums from "@/app/components/user_albums"
 import UserProfile from "@/app/components/user_profile"
 
 interface UserPageProps {
-	params: { user_id: number }
+	params: { user_id: string }
 }
 
 export default async function UserPage({ params }: UserPageProps) {

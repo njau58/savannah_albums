@@ -3,7 +3,7 @@ import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
 import { AlbumCard } from "../album_card"
 import { AlbumProps } from "@/app/types"
 
-const UserAlbums = ({ user_id }: { user_id: number }) => {
+const UserAlbums = ({ user_id }: { user_id: string }) => {
 	const { userAlbumsQuery } = useServerActionsQuery(user_id)
 
 	if (userAlbumsQuery.isLoading) {
