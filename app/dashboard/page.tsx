@@ -5,7 +5,8 @@ import { Loader } from "../components/spinners"
 import { useSession } from "next-auth/react"
 import AlbumStats from "./stats/album_stats"
 import UserStats from "./stats/user_stats"
-import GoBackButton from "../components/go_back_button"
+import CustomLink from "../components/custom_link"
+import { BiArrowBack } from "react-icons/bi"
 
 export default function DashboardPage() {
 	const { data: session, status } = useSession()
@@ -13,26 +14,32 @@ export default function DashboardPage() {
 	console.log("session", session)
 	return (
 		<main className="py-24  w-full max-w-7xl px-4 mx-auto">
-			<div className="flex flex-col lg:flex-row gap-8  items-center justify-between mb-8">
+			<div className="flex flex-row gap-8  items-center justify-between mb-8">
 				<>
 					{!session && status === "loading" && <Loader />}
 
 					{session && (
-						<div className=" font-medium text-center lg:text-left ">
+						<div className=" text-sm lg:text-lg font-semibold text-center lg:text-left ">
 							Hi {session.user?.name || "User"}, Welcome!
 						</div>
 					)}
 					<div>
-						<GoBackButton />
+						<CustomLink
+							icon={<BiArrowBack />}
+							href="/"
+							label=" Back Home"
+							theme="primary"
+						/>
 					</div>
 				</>
 			</div>
 			<hr className="text-gray-300 my-4"></hr>
-			<div className="flex flex-col  justify-between space-x-8  lg:flex-row w-full">
-				<div className="grid grid-cols-2 m gap-8  py-4 min-w-max  h-full max-h-44     ">
+			<div className="flex flex-col lg:space-x-8  justify-between   lg:flex-row w-full">
+				<div className="grid grid-cols-2 m gap-8  py-4 min-w-max  h-full max-h-44   ">
 					<UserStats />
 					<AlbumStats />
 				</div>
+				<hr className="text-gray-300 my-8"></hr>
 				<Users />
 			</div>
 		</main>
