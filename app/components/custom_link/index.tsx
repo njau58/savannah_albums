@@ -34,9 +34,10 @@ const CustomLink = ({
 			return (
 				<Link
 					href={href}
-					className=" px-4 py-2 text-sm hover:underline  text-primary  "
+					className="flex items-center gap-1 font-semibold px-4 py-2 text-sm hover:underline  text-primary  "
 				>
 					{label}
+					{icon}
 				</Link>
 			)
 	}

@@ -3,8 +3,8 @@
 
 import { AlbumProps } from "@/app/types"
 import Link from "next/link"
+import { FaArrowRight } from "react-icons/fa"
 import { IoMdImages } from "react-icons/io"
-import { TfiAngleRight } from "react-icons/tfi"
 
 export function AlbumCard({ id, title, userId }: AlbumProps) {
 	return (
@@ -17,13 +17,13 @@ export function AlbumCard({ id, title, userId }: AlbumProps) {
 				<div className="mt-8 flex justify-between items-center">
 					<IoMdImages className="text-4xl text-primary" />
 					<Link
-						href={`/users/${userId}/albums/${id}`}
+						href={`/dashboard/users/${userId}/albums/${id}`}
 						className="text-sm text-primary hover:underline flex items-center"
 					>
 						View photos
 						<span className="ml-1 ">
 							{" "}
-							<TfiAngleRight />
+							<FaArrowRight />
 						</span>
 					</Link>
 				</div>

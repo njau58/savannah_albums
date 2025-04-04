@@ -55,3 +55,9 @@ export interface AlbumProps {
     error_msg:string
   }
 
+  export interface PhotoCardProps {
+    title: string
+    url: string
+    thumbnailUrl: string
+    id:string
+  }

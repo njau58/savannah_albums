@@ -19,7 +19,7 @@ const AlbumStats = () => {
 				/>
 			) : (
 				<h3 className="text-sm font-bold mb-2">
-					{albumsQuery?.data?.length} Albums
+					{albumsQuery?.data?.length} Album(s)
 				</h3>
 			)}
 		</div>
