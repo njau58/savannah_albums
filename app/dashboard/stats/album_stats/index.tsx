@@ -1,4 +1,4 @@
-import FetchErrorComponent from "@/app/components/fetch_error_component"
+import FetchErrorComponent from "@/app/dashboard/_components/fetch_error_component"
 import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
 import { FaImage } from "react-icons/fa"
 

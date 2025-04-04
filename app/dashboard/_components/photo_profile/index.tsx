@@ -1,10 +1,10 @@
 "use client"
 
 import { useParams } from "next/navigation"
-import GoBackButton from "../go_back_button"
+import GoBackButton from "../../../components/go_back_button"
 import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
 import FetchErrorComponent from "../fetch_error_component"
-import { Loader } from "../spinners"
+import { Loader } from "../../../components/spinners"
 
 const PhotoProfile = () => {
 	const { photo_id } = useParams()

@@ -1,5 +1,5 @@
-import AlbumPhotos from "@/app/components/album_photos"
-import AlbumProfile from "@/app/components/album_profile"
+import AlbumPhotos from "@/app/dashboard/_components/album_photos"
+import AlbumProfile from "@/app/dashboard/_components/album_profile"
 
 type UserPageProps = Promise<{ album_id: string }>
 export default async function AlbumPhotosPage({

@@ -3,7 +3,7 @@
 import { PhotoCardProps } from "@/app/types"
 import Image from "next/image"
 import { useState } from "react"
-import CustomLink from "../custom_link"
+import CustomLink from "../../../components/custom_link"
 import { FaArrowRight } from "react-icons/fa"
 import { useParams } from "next/navigation"
 

@@ -1,9 +1,9 @@
 "use client"
 
 import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
-import GoBackButton from "../go_back_button"
+import GoBackButton from "../../../components/go_back_button"
 import FetchErrorComponent from "../fetch_error_component"
-import { Loader } from "../spinners"
+import { Loader } from "../../../components/spinners"
 export default function UserProfile({ user_id }: { user_id: string }) {
 	const { userQuery } = useServerActionsQuery(user_id)
 

@@ -59,6 +59,17 @@ const CustomButton = ({
 					{label}
 				</button>
 			)
+		case "primary":
+			return (
+				<button
+					onClick={onClick}
+					className="w-full bg-primary text-center hover:bg-primary/90 text-white  border font-medium text-sm py-2 px-4 rounded-full  flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
+					{...props}
+				>
+					<span className="text-white text-xl">{icon}</span>
+					{label}
+				</button>
+			)
 		case "custom":
 			return (
 				<button onClick={onClick} className={`${className}`} {...props}>

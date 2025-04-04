@@ -1,5 +1,5 @@
-import UserAlbums from "@/app/components/user_albums"
-import UserProfile from "@/app/components/user_profile"
+import UserAlbums from "@/app/dashboard/_components/user_albums"
+import UserProfile from "@/app/dashboard/_components/user_profile"
 
 type UserPageProps = Promise<{ user_id: string }>
 export default async function UserPage({ params }: { params: UserPageProps }) {

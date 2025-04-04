@@ -30,7 +30,7 @@ const AlbumPhotos = ({ album_id }: { album_id: string }) => {
 					<p>No photos found</p>
 				</div>
 			) : (
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
 					{albumPhotosQuery.data?.map((photo: PhotoCardProps) => {
 						return (
 							<PhotoCard
