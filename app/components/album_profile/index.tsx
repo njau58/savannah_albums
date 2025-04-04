@@ -17,7 +17,7 @@ const AlbumProfile = () => {
 					Showing photo(s) for album:
 				</span>
 				<h1 className="text-sm lg:text-xl font-bold w-full max-w-xs lg:max-w-sm text-primary">
-					{albumByIdQuery.data?.title || "Loading album title..."}
+					{albumByIdQuery.data?.title}
 				</h1>
 				{albumByIdQuery.error && (
 					<h1 className="text-sm lg:text-xl font-bold w-full max-w-xs lg:max-w-sm text-primary">

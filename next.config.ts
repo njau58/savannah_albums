@@ -6,9 +6,25 @@ const nextConfig = {
       destination: "/api/auth/:path*",
     },
   ],
-  images:{
-    domains:["via.placeholder.com","picsum.photos"]
-  }
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+   
+  },
+ 
+  output: 'standalone',
 };
 
 module.exports = nextConfig;
