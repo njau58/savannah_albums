@@ -13,7 +13,7 @@ const CustomLink = ({
 			return (
 				<Link
 					href={href}
-					className="rounded-full bg-primary text-center px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-primary/90 transition duration-75"
+					className="rounded-full  bg-primary text-center px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-primary/90 transition duration-75"
 				>
 					{label}
 				</Link>
@@ -22,7 +22,7 @@ const CustomLink = ({
 			return (
 				<Link
 					href={href}
-					className={`rounded-full justify-center px-6 py-3 text-center text-sm font-semibold flex items-center gap-2 border border-gray-100 transition duration-75 hover:bg-white/10 ${
+					className={`rounded-full justify-center px-6 py-3 text-center border-2 text-sm font-semibold flex items-center gap-2 border-gray-100 transition duration-75 hover:bg-white/10 ${
 						text_color ? `text-${text_color}` : "text-white"
 					}`}
 				>
@@ -34,7 +34,7 @@ const CustomLink = ({
 			return (
 				<Link
 					href={href}
-					className="flex items-center gap-1 font-semibold px-4 py-2 text-sm hover:underline  text-primary  "
+					className="flex items-center gap-1  font-semibold px-4 py-2 text-sm hover:underline  text-primary  "
 				>
 					{label}
 					{icon}

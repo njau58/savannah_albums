@@ -11,7 +11,7 @@ import { BiArrowBack } from "react-icons/bi"
 export default function DashboardPage() {
 	const { data: session, status } = useSession()
 
-	console.log("session", session)
+	// console.log("session", session)
 	return (
 		<main className="py-24  w-full max-w-7xl px-4 mx-auto">
 			<div className="flex flex-row gap-8  items-center justify-between mb-8">

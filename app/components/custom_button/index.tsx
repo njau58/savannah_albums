@@ -52,7 +52,7 @@ const CustomButton = ({
 			return (
 				<button
 					onClick={onClick}
-					className="w-full bg-transparent hover:bg-white/10 text-white  border font-medium text-sm py-2 px-4 rounded-full flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
+					className="w-full border-2 bg-transparent hover:bg-white/10 text-white  border font-medium text-sm py-2 px-4 rounded-full flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
 					{...props}
 				>
 					<span className="text-white text-xl">{icon}</span>
@@ -63,7 +63,7 @@ const CustomButton = ({
 			return (
 				<button
 					onClick={onClick}
-					className="w-full bg-primary text-center hover:bg-primary/90 text-white  border font-medium text-sm py-2 px-4 rounded-full  flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
+					className="w-full bg-primary text-center hover:bg-primary/90 text-white  border-2 font-medium text-sm py-2 px-4 rounded-full  flex items-center justify-center gap-3 transition-all shadow-sm hover:shadow-md disabled:opacity-70"
 					{...props}
 				>
 					<span className="text-white text-xl">{icon}</span>
