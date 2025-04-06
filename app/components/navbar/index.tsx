@@ -2,12 +2,14 @@
 
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { FaBars, FaSignInAlt, FaSignOutAlt } from "react-icons/fa"
+import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa"
 import CustomButton from "../custom_button"
 import CustomLink from "../custom_link"
 import { useSession, signOut } from "next-auth/react"
 import { toast } from "sonner"
 import { useState } from "react"
+
+import UserDashboardProfile from "@/app/dashboard/_components/user_dashboard_profile"
 
 export default function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
@@ -28,6 +30,8 @@ export default function Navbar() {
 		setIsMenuOpen((prev) => !prev)
 	}
 
+	console.log(session)
+
 	return (
 		<nav className="mx-auto px-4 py-4 bg-primary top-0 fixed z-50 w-full">
 			<div className="w-full lg:px-2 max-w-7xl mx-auto flex items-center justify-between relative">
@@ -38,13 +42,13 @@ export default function Navbar() {
 					Savannah Albums
 				</Link>
 
-				<div className="flex items-center gap-4">
-					{isDashboard && (
-						<button onClick={toggleSidebar} className="text-white p-2">
-							<FaBars className="text-3xl" />
-						</button>
-					)}
-
+				<div className="flex items-center ">
+					<UserDashboardProfile
+						isDashboard={isDashboard}
+						session={session}
+						isMenuOpen={isMenuOpen}
+						toggleSidebar={toggleSidebar}
+					/>
 					{!isDashboard && (
 						<>
 							{session ? (
@@ -70,7 +74,7 @@ export default function Navbar() {
 
 				{isDashboard && isMenuOpen && (
 					<div className="absolute right-0 divide-y-1 divide-gray-200  top-full mt-2 bg-white p-4 w-64 rounded shadow-lg">
-						<CustomLink href="/dashboard" label="Dashbaoard" />
+						<CustomLink href="/dashboard" label="Dashboard" />
 						<div className="mt-2">
 							<CustomButton
 								theme="primary"

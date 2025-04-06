@@ -61,3 +61,17 @@ export interface AlbumProps {
     thumbnailUrl: string
     id:string
   }
+
+
+  export interface UserDashboardProfileProps {
+    isDashboard: boolean;
+    session: {
+      user?: {
+        image?: string | null;
+        name?: string | null;
+        email?: string | null;
+      };
+    } | null;
+    isMenuOpen: boolean;
+    toggleSidebar: () => void;
+  }
