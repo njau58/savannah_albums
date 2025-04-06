@@ -25,17 +25,17 @@ export const UserDashboardProfile = ({
 				/>
 			</div>
 
-			<div className="min-w-0 flex-1 text-left">
-				<p className="font-bold text-white text-xs truncate">
+			<div className="text-left">
+				<p className="font-bold text-white text-xs truncate w-24">
 					{session.user?.name || "Anonymous"}
 				</p>
-				<p className="text-gray-300 text-xs truncate">
+				<p className="text-gray-300 text-xs truncate w-24">
 					{session.user?.email || ""}
 				</p>
 			</div>
 
 			<FaAngleDown
-				className={`flex-shrink-0 text-white transition-transform ${
+				className={` text-white transition-transform ${
 					isMenuOpen ? "rotate-180" : ""
 				}`}
 			/>
