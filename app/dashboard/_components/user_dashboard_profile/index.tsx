@@ -14,7 +14,7 @@ export const UserDashboardProfile = ({
 		<button
 			onClick={toggleSidebar}
 			aria-expanded={isMenuOpen}
-			className="flex w-full items-center gap-2 p-1 rounded-lg hover:bg-white/10 transition-colors"
+			className="flex w-full items-center gap-1 p-1 rounded-lg hover:bg-white/10 transition-colors"
 		>
 			<div className="flex-shrink-0 h-9 w-9 relative">
 				<Image
@@ -25,7 +25,7 @@ export const UserDashboardProfile = ({
 				/>
 			</div>
 
-			<div className="text-left">
+			<div className="text-left ">
 				<p className="font-bold text-white text-xs truncate w-24">
 					{session.user?.name || "Anonymous"}
 				</p>
