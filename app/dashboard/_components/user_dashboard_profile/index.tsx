@@ -18,7 +18,7 @@ export const UserDashboardProfile = ({
 		>
 			<div className="flex-shrink-0 h-9 w-9 relative">
 				<Image
-					src={session.user?.image || "/default-avatar.png"}
+					src={session.user?.image || "/default_avatar.jpg"}
 					alt="Profile"
 					fill
 					className="rounded-full object-cover"
