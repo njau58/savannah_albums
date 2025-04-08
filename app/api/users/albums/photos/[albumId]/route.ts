@@ -1,17 +1,20 @@
 import connectDb from "@/app/lib/db_connect"
 import Photo from "@/app/models/Photo"
 import { NextResponse } from "next/server"
+type RequestProps = Promise<{ albumId: string }>
 
-export async function GET(  request: Request,{params}:{params:{albumId:string}}) {
+export async function GET(
+	request: Request,
+	{ params }: { params: { albumId: RequestProps } }
+) {
+	const { albumId } = await params
 
-
-    
-
-    const  {albumId} = await params
 	try {
 		await connectDb()
 
-		const albums = await Photo.find({albumId:Number(albumId)}).select('id albumId url title').lean()
+		const albums = await Photo.find({ albumId: Number(albumId) })
+			.select("id albumId url title")
+			.lean()
 
 		return NextResponse.json(albums, { status: 200 })
 	} catch (error) {

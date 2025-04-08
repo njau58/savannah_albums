@@ -4,8 +4,9 @@
 import connectDb from "@/app/lib/db_connect"
 import Album from "@/app/models/Album"
 import { NextResponse } from "next/server"
+type RequestProps = Promise<{ userId: string }>
 
-export async function GET(  request: Request,{params}:{params:{userId:string}}) {
+export async function GET(  request: Request,{params}:{params:{userId:RequestProps}}) {
 
     const  {userId} = await params
 
