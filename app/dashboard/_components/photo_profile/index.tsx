@@ -10,6 +10,8 @@ const PhotoProfile = () => {
 	const { photo_id } = useParams()
 	const { photoByIdQuery } = useServerActionsQuery("", "", photo_id)
 
+	console.log("Image data", photoByIdQuery.data)
+
 	return (
 		<div className="w-full flex items-center justify-between my-8 ">
 			<div className="flex items-baseline gap-2">

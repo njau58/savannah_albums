@@ -59,15 +59,23 @@ export const getAlbumById =async (album_id:string)=>{
       return response.json()
 
 }
-export const getPhotoById =async (photo_id:string)=>{
+export const fetchPhotoById =async (photo_id:string)=>{
 
-  const response = await  fetch(`https://jsonplaceholder.typicode.com/photos/${photo_id}`)
+  const response = await  fetch(`${process.env.NEXTAUTH_URL}/api/users/albums/photo/${photo_id}`)
   if(!response.ok){
     throw new Error('Failed to fetch photo')
   } 
 
 
       return response.json()
+
+}
+
+
+
+export async function editPhotoTitle(photo_id: string, newTitle: string) {
+ 
+  console.log(`Updating  ${photo_id}:${newTitle}`);
 
 }
 
