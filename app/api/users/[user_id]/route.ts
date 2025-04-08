@@ -6,13 +6,9 @@ export async function GET(
   request: Request,
   { params }: { params: { user_id: string } }
 ) {
-
-  const {user_id} = await params
-
-  // console.log('USER_ID',params.user_id )
   try {
     await connectDb();
-    const user = await User.findOne({id:Number(user_id)})
+    const user = await User.findOne({ id: Number(params.user_id) }) 
       .select("id name username email")
       .lean();
 
@@ -25,7 +21,7 @@ export async function GET(
 
     return NextResponse.json(user, { status: 200 });
   } catch (error) {
-    console.error(`GET /api/users/[id] error:`, error);
+    console.error(`GET /api/users/[user_id] error:`, error);
     return NextResponse.json(
       { error: "Failed to fetch user" },
       { status: 500 }
