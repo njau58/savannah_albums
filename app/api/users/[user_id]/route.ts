@@ -1,14 +1,16 @@
+import { NextRequest, NextResponse } from "next/server";
 import connectDb from "@/app/lib/db_connect";
 import User from "@/app/models/User";
-import { NextResponse } from "next/server";
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { user_id: string } }
 ) {
   try {
+   
+
     await connectDb();
-    const user = await User.findOne({ id: Number(params.user_id) }) 
+    const user = await User.findOne({ id: Number(params.user_id) })
       .select("id name username email")
       .lean();
 
