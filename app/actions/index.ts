@@ -11,7 +11,7 @@ export async function fetchUsers(): Promise<UserProps[]> {
   }
   
   export async function fetchAlbums(): Promise<AlbumProps[]> {
-    const response = await fetch("https://jsonplaceholder.typicode.com/albums")
+    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/albums`)
    
     if (!response.ok) throw new Error("Failed to fetch albums")
       
