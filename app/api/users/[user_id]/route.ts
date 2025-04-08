@@ -2,11 +2,11 @@ import connectDb from "@/app/lib/db_connect";
 import User from "@/app/models/User";
 import { NextResponse } from "next/server";
 
-type RequestProps = Promise<{ user_id: string } >
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export async function GET(
   request: Request,
-  { params }: { params: { user_id: RequestProps } }
+  { params }: any
 ) {
 
 

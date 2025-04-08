@@ -1,11 +1,11 @@
 import connectDb from "@/app/lib/db_connect"
 import Photo from "@/app/models/Photo"
 import { NextResponse } from "next/server"
-type RequestProps = Promise<{ albumId: string }>
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export async function GET(
 	request: Request,
-	{ params }: { params: { albumId: RequestProps } }
+	{ params }: any
 ) {
 	const { albumId } = await params
 
