@@ -4,9 +4,9 @@
 import connectDb from "@/app/lib/db_connect"
 import Album from "@/app/models/Album"
 import { NextResponse } from "next/server"
-type RequestProps = Promise<{ userId: string }>
 
-export async function GET(  request: Request,{params}:{params:{userId:RequestProps}}) {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export async function GET(  request: Request,{params}:any) {
 
     const  {userId} = await params
 
