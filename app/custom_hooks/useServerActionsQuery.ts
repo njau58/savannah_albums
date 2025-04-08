@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchAlbums, fetchUsers, getAlbumById, getAlbumPhotos, getPhotoById, getUser, getUserAlbums } from "../actions";
+import { fetchAlbums, fetchUserById, fetchUsers, getAlbumById, getAlbumPhotos, getPhotoById, getUserAlbums } from "../actions";
 
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -13,9 +13,9 @@ export function useServerActionsQuery(user_id?:string, album_id?:string|any, pho
     queryKey: ['albums'],
     queryFn: () => fetchAlbums(), 
   });
-  const userQuery = useQuery({
+  const fetchUserByIdQuery = useQuery({
     queryKey: ['user',user_id],
-    queryFn: () => user_id?getUser(user_id):Promise.resolve(null), 
+    queryFn: () => user_id?fetchUserById(user_id):Promise.resolve(null), 
   });
   const userAlbumsQuery = useQuery({
     queryKey: ['albums',user_id],
@@ -38,5 +38,5 @@ export function useServerActionsQuery(user_id?:string, album_id?:string|any, pho
   
   });
 
-  return { usersQuery, albumsQuery, userQuery , userAlbumsQuery, albumPhotosQuery, albumByIdQuery, photoByIdQuery};
+  return { usersQuery, albumsQuery, fetchUserByIdQuery , userAlbumsQuery, albumPhotosQuery, albumByIdQuery, photoByIdQuery};
 }
