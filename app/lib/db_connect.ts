@@ -5,7 +5,10 @@ const connectDb = async (): Promise<void> => {
 		const connectionString: string = process.env.MONGO_URI??""
 		await mongoose.connect(connectionString, {
 			
-			useUnifiedTopology: true,
+	
+            useNewUrlParser: true,
+           
+            socketTimeoutMS: 30000,
 		} as ConnectOptions)
 
 		console.log("MongoDB connected successfully")

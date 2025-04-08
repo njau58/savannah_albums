@@ -1,17 +1,20 @@
 
 'use server'
 
-import { Album, User } from "../types"
+import {  AlbumProps,  UserProps } from "../types"
 
-export async function fetchUsers(): Promise<User[]> {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users")
+
+export async function fetchUsers(): Promise<UserProps[]> {
+    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/users`)
     if (!response.ok) throw new Error("Failed to fetch users")
     return response.json()
   }
   
-  export async function fetchAlbums(): Promise<Album[]> {
+  export async function fetchAlbums(): Promise<AlbumProps[]> {
     const response = await fetch("https://jsonplaceholder.typicode.com/albums")
+   
     if (!response.ok) throw new Error("Failed to fetch albums")
+      
     return response.json()
   }
 
@@ -73,6 +76,10 @@ export const getPhotoById =async (photo_id:string)=>{
       return response.json()
 
 }
+
+
+
+
 
 
 

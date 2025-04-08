@@ -5,6 +5,8 @@ import { FaImage } from "react-icons/fa"
 const AlbumStats = () => {
 	const { albumsQuery } = useServerActionsQuery()
 
+	console.info(albumsQuery.data)
+
 	return (
 		<div className="flex items-center justify-center flex-col bg-white  border-2 border-gray-200 p-8 rounded-3xl ">
 			<div className="text-primary mb-4 text-4xl">

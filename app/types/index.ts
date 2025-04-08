@@ -1,3 +1,4 @@
+import { Document } from "mongoose"
 
 
 
@@ -23,14 +24,14 @@ export interface CustomButtonProps{
 
 }
 
-export interface User{
-    id: number
-	name: string
-	email: string
-	username: string
+export interface UserProps{
+  id: number
+name: string
+email: string
+username: string
 }
 
-export interface Album{
+export interface AlbumProps{
 
     userId: number
 	id: number
@@ -38,18 +39,17 @@ export interface Album{
 
 }
 
-export interface Photo{
+
+
+export interface PhotoProps{
     url:string,
     albumId:number,
     title:string
+    id: number
 }
 
-export interface AlbumProps {
-	id: number
-	title: string
-    photo_count?: number
-    userId?: number
-}
+
+
   export interface FetchErrorComponentProps{
     onClick:()=>void,
     error_msg:string
@@ -75,3 +75,26 @@ export interface AlbumProps {
     isMenuOpen: boolean;
     toggleSidebar: () => void;
   }
+
+//Models Types
+
+  export interface PhotoDocumentProps extends Document{
+    url:string,
+    albumId:number,
+    title:string
+    id: number
+  }
+  
+  export interface UserDocumentProps extends Document{
+    id: number
+	name: string
+	email: string
+	username: string
+}
+export interface AlbumDocumentProps extends Document{
+
+  userId: number
+id: number
+title: string
+
+}
