@@ -3,7 +3,7 @@ import { FaImages, FaArrowRight } from "react-icons/fa"
 import { Loader } from "../../components/spinners"
 import CustomLink from "../../components/custom_link"
 
-import { User } from "@/app/types"
+import { UserProps } from "@/app/types"
 import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
 import FetchErrorComponent from "@/app/dashboard/_components/fetch_error_component"
 
@@ -65,7 +65,7 @@ export default function Users() {
 					</thead>
 					<tbody className="bg-white divide-y divide-gray-200">
 						{usersQuery.data &&
-							usersQuery.data.map((user: User) => (
+							usersQuery.data.map((user: UserProps) => (
 								<tr key={user.id} className="hover:bg-gray-50">
 									<td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
 										{user.name}
