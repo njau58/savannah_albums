@@ -2,11 +2,13 @@ import connectDb from "@/app/lib/db_connect"
 import Album from "@/app/models/Album"
 import { NextResponse } from "next/server"
 
-export async function GET() {
+export async function GET(  request: Request,{params}:{params:{userId:string}}) {
+
+    const  {userId} = await params
 	try {
 		await connectDb()
 
-		const albums = await Album.find({}).select('id userId title').lean()
+		const albums = await Album.find({userId:Number(userId)}).select('id userId title').lean()
 
 		return NextResponse.json(albums, { status: 200 })
 	} catch (error) {

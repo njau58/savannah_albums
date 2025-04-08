@@ -2,6 +2,7 @@
 import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
 import { AlbumCard } from "../album_card"
 import { AlbumProps } from "@/app/types"
+import FetchErrorComponent from "../fetch_error_component"
 
 const UserAlbums = ({ user_id }: { user_id: string }) => {
 	const { userAlbumsQuery } = useServerActionsQuery(user_id)
@@ -16,7 +17,10 @@ const UserAlbums = ({ user_id }: { user_id: string }) => {
 
 	if (userAlbumsQuery.error) {
 		return (
-			<div className="text-red-500">Error: {userAlbumsQuery.error.message}</div>
+			<FetchErrorComponent
+				onClick={userAlbumsQuery.refetch}
+				error_msg="An error occured."
+			/>
 		)
 	}
 	return (

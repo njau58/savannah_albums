@@ -11,7 +11,7 @@ export async function fetchUsers(): Promise<UserProps[]> {
   }
   
   export async function fetchAlbums(): Promise<AlbumProps[]> {
-    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/albums`)
+    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/all-albums`)
    
     if (!response.ok) throw new Error("Failed to fetch albums")
       
@@ -27,13 +27,9 @@ export async function fetchUserById(user_id: string): Promise<UserProps> {
   }
   return response.json();
 }
-  export async function getUserAlbums(user_id: string) {
+  export async function fetchUserAlbums(userId: string) {
+    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/users/albums/${userId}`);
 
-
-
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/users/${user_id}/albums`
-    )
     if (!response.ok) {
       throw new Error(`Failed to fetch albums`)
     }
