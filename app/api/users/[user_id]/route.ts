@@ -1,38 +1,35 @@
-import { type NextRequest } from 'next/server';
 import connectDb from "@/app/lib/db_connect";
 import User from "@/app/models/User";
+import { NextResponse } from "next/server";
 
 export async function GET(
-  request: NextRequest,
-  context: { params: { user_id: string } }
+  request: Request,
+  { params }: { params: { user_id: string } }
 ) {
-  try {
-    const { params } = context;
-    
-    const userId = Number(params.user_id);
-  
 
+
+  const {user_id} = await params
+  try {
     await connectDb();
-    const user = await User.findOne({ id: userId })
+    console.log('Database connection established..')
+    const user = await User.findOne({ id: Number(user_id) }) 
       .select("id name username email")
       .lean();
 
     if (!user) {
-      return new Response(
-        JSON.stringify({ error: "User not found" }),
+      return NextResponse.json(
+        { error: "User not found" },
         { status: 404 }
       );
     }
 
-    return new Response(
-      JSON.stringify(user),
-      { status: 200 }
-    );
+    return NextResponse.json(user, { status: 200 });
   } catch (error) {
     console.error(`GET /api/users/[user_id] error:`, error);
-    return new Response(
-      JSON.stringify({ error: "Server error" }),
+    return NextResponse.json(
+      { error: "Failed to fetch user" },
       { status: 500 }
     );
   }
 }
+
