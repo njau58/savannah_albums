@@ -5,7 +5,7 @@ import { PhotoCard } from "../photo_card"
 import FetchErrorComponent from "../fetch_error_component"
 
 const AlbumPhotos = ({ album_id }: { album_id: string }) => {
-	const { albumPhotosQuery } = useServerActionsQuery("", album_id)
+	const { albumPhotosQuery } = useServerActionsQuery("", album_id, "")
 
 	if (albumPhotosQuery.isLoading) {
 		return (
@@ -25,7 +25,7 @@ const AlbumPhotos = ({ album_id }: { album_id: string }) => {
 	}
 	return (
 		<>
-			{albumPhotosQuery.data.lenght === 0 ? (
+			{albumPhotosQuery?.data?.lenght === 0 ? (
 				<div className="min-h-screen flex items-center justify-center text-center py-12">
 					<p>No photos found</p>
 				</div>

@@ -1,3 +1,6 @@
+
+
+
 import connectDb from "@/app/lib/db_connect"
 import Album from "@/app/models/Album"
 import { NextResponse } from "next/server"
@@ -5,6 +8,8 @@ import { NextResponse } from "next/server"
 export async function GET(  request: Request,{params}:{params:{userId:string}}) {
 
     const  {userId} = await params
+
+	console.log('USERID', userId)
 	try {
 		await connectDb()
 
@@ -16,3 +21,4 @@ export async function GET(  request: Request,{params}:{params:{userId:string}}) 
 		return NextResponse.json({ error: "" }, { status: 500 })
 	}
 }
+

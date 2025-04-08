@@ -12,18 +12,16 @@ export function PhotoCard({ title, url, id }: PhotoCardProps) {
 
 	const { user_id } = useParams()
 
-	console.log(url)
-
 	return (
 		<div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200">
-			<div className="relative overflow-hidden h-64 rounded-md">
+			<div className="relative overflow-hidden h-64 rounded-md bg-gray-100">
 				<Image
 					placeholder="blur"
-					blurDataURL="https://picsum.photos/700"
+					blurDataURL={url}
 					onLoad={() => setIsLoading(false)}
-					src="https://picsum.photos/700"
+					src={url}
 					layout="fill"
-					alt=""
+					alt="cover image"
 					className={`${
 						isLoading
 							? "w-full h-full max-h-[20rem]  object-cover transform ease-in-out duration-700 hover:scale-110 blur-xl"
