@@ -1,5 +1,5 @@
 import { Document } from "mongoose"
-import { StaticImport } from "next/dist/shared/lib/get-img-props"
+
 
 
 
@@ -43,7 +43,7 @@ export interface AlbumProps{
 
 
 export interface PhotoProps{
-    url:string|StaticImport,
+    url:string,
     albumId:number,
     title:string
     id: number
@@ -58,7 +58,7 @@ export interface PhotoProps{
 
   export interface PhotoCardProps {
     title: string
-    url: string|StaticImport
+    url: string
     thumbnailUrl: string
     id:string
   }

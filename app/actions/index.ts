@@ -1,7 +1,7 @@
 
 'use server'
 
-import {  AlbumProps,  PhotoProps,  UserProps } from "../types"
+import {  AlbumProps,   UserProps } from "../types"
 
 
 export async function fetchUsers(): Promise<UserProps[]> {
@@ -60,7 +60,7 @@ export const getAlbumById =async (album_id:string)=>{
       return response.json()
 
 }
-export const fetchPhotoById =async (photo_id:string):Promise<PhotoProps>=>{
+export const fetchPhotoById =async (photo_id:string)=>{
 
   const response = await  fetch(`${process.env.NEXTAUTH_URL}/api/users/albums/photo/${photo_id}`)
   if(!response.ok){

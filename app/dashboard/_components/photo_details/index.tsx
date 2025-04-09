@@ -4,7 +4,6 @@ import { editPhotoTitle } from "@/app/actions"
 import CustomButton from "@/app/components/custom_button"
 import { useServerActionsMutation } from "@/app/custom_hooks/useServerActionsMutation"
 import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
-import { StaticImport } from "next/dist/shared/lib/get-img-props"
 import Image from "next/image"
 import { useState } from "react"
 import { BiSave } from "react-icons/bi"
@@ -47,7 +46,7 @@ const PhotoDetails = ({ photo_id }: PhotoDetailsProps) => {
 					<div className="w-full h-full bg-gray-200 animate-pulse rounded-3xl"></div>
 				) : (
 					<Image
-						src={photoByIdQuery?.data?.url as StaticImport}
+						src={photoByIdQuery?.data?.url}
 						alt={photoByIdQuery?.data?.title || "coveer img"}
 						fill
 						className="max-w-full h-full max-h-[500px] rounded-lg shadow-lg object-cover"
