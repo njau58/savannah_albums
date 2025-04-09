@@ -18,7 +18,7 @@ export async function GET(
 
 		return NextResponse.json(photo, { status: 200 })
 	} catch (error) {
-		console.error("GET /api/albums/photo error:", error)
+		console.error("PATCH /api/users/albums/photo/update/error:", error)
 		return NextResponse.json({ error: "" }, { status: 500 })
 	}
 }

@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation"
 import { getSession } from "../lib/auth"
+import { Toaster } from "sonner"
 
 export default async function DashboardRootLayout({
 	children,
@@ -12,5 +13,10 @@ export default async function DashboardRootLayout({
 		redirect("/auth/signin?callbackUrl=/dashboard")
 	}
 
-	return <>{children}</>
+	return (
+		<>
+			{children}
+			<Toaster />
+		</>
+	)
 }

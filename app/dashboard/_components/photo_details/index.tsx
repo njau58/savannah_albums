@@ -7,6 +7,7 @@ import { useServerActionsQuery } from "@/app/custom_hooks/useServerActionsQuery"
 import Image from "next/image"
 import { useState } from "react"
 import { BiSave } from "react-icons/bi"
+import { toast } from "sonner"
 
 interface PhotoDetailsProps {
 	photo_id: string
@@ -32,7 +33,8 @@ const PhotoDetails = ({ photo_id }: PhotoDetailsProps) => {
 		}
 		photoMutation.mutate(undefined, {
 			onSuccess: () => {
-				window.location.reload()
+				toast.success("Title updated Successfully!")
+				photoByIdQuery.refetch()
 			},
 		})
 	}
@@ -40,7 +42,7 @@ const PhotoDetails = ({ photo_id }: PhotoDetailsProps) => {
 	// console.log(photo_title_edit)
 
 	return (
-		<div className="p-2  border border-gray-300 rounded-3xl">
+		<div className="p-2 pt-4  border border-gray-300 rounded-3xl">
 			<div className="mb-8 px-2 bg relative h-56 w-full max-w-96 mx-auto flex justify-center">
 				{photoByIdQuery?.isLoading ? (
 					<div className="w-full h-full bg-gray-200 animate-pulse rounded-3xl"></div>
@@ -49,13 +51,14 @@ const PhotoDetails = ({ photo_id }: PhotoDetailsProps) => {
 						src={photoByIdQuery?.data?.url}
 						alt={photoByIdQuery?.data?.title || "coveer img"}
 						fill
-						className="max-w-full h-full max-h-[500px] rounded-lg shadow-lg object-cover"
+						className="max-w-full h-full max-h-[500px] rounded-3xl shadow-lg object-cover"
 						sizes="(max-width: 768px) 100vw, 50vw"
 					/>
 				)}
 			</div>
+			<hr className="text-gray-200 my-2"></hr>
 
-			<div className="border border-gray-200 p-6 rounded-3xl">
+			<div className=" border-gray-200 p-6 ">
 				<form
 					onSubmit={handleSubmit}
 					className="flex flex-col sm:flex-row gap-4"
