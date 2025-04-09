@@ -3,7 +3,7 @@ import { Document } from "mongoose"
 
 
 
-export  interface CustomLinkProps {
+export  interface CustomLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>{
 
     label:string,
     theme?:'primary'|'secondary'
