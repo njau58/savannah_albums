@@ -25,7 +25,7 @@ const UserAlbums = ({ user_id }: { user_id: string }) => {
 	}
 	return (
 		<>
-			{userAlbumsQuery.data.lenght === 0 ? (
+			{userAlbumsQuery?.data?.length === 0 ? (
 				<div className="col-span-full text-center py-12">
 					<p>No albums found</p>
 				</div>
