@@ -1,8 +1,9 @@
 import { Document } from "mongoose"
+import { StaticImport } from "next/dist/shared/lib/get-img-props"
 
 
 
-export  interface CustomLinkProps extends React.ButtonHTMLAttributes<HTMLHtmlElement>{
+export  interface CustomLinkProps {
 
     label:string,
     theme?:'primary'|'secondary'
@@ -12,14 +13,14 @@ export  interface CustomLinkProps extends React.ButtonHTMLAttributes<HTMLHtmlEle
 
 }
 
-export interface CustomButtonProps{
+export interface CustomButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     label:string,
     theme :"primary" | "secondary" | "google" | "github" | "custom"
     onClick:()=>void,
     className?:string,
     icon?:React.ReactNode,
     text_color?:string
-    loading?:"github" | "google" |null
+    loading?:"github" | "google" |null|boolean
     
 
 }
@@ -42,7 +43,7 @@ export interface AlbumProps{
 
 
 export interface PhotoProps{
-    url:string,
+    url:string|StaticImport,
     albumId:number,
     title:string
     id: number
@@ -57,7 +58,7 @@ export interface PhotoProps{
 
   export interface PhotoCardProps {
     title: string
-    url: string
+    url: string|StaticImport
     thumbnailUrl: string
     id:string
   }

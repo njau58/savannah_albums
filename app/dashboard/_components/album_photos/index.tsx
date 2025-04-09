@@ -25,16 +25,16 @@ const AlbumPhotos = ({ album_id }: { album_id: string }) => {
 	}
 	return (
 		<>
-			{albumPhotosQuery?.data?.lenght === 0 ? (
-				<div className="min-h-screen flex items-center justify-center text-center py-12">
-					<p>No photos found</p>
+			{albumPhotosQuery?.data?.length === 0 ? (
+				<div className="flex items-center justify-center text-center py-24">
+					<p>No photos found for this album.</p>
 				</div>
 			) : (
 				<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
 					{albumPhotosQuery.data?.map((photo: PhotoCardProps) => {
 						return (
 							<PhotoCard
-								key={photo.url}
+								key={photo.title}
 								thumbnailUrl={photo.thumbnailUrl}
 								title={photo.title}
 								url={photo.url}

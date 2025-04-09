@@ -1,7 +1,7 @@
 
 'use server'
 
-import {  AlbumProps,  UserProps } from "../types"
+import {  AlbumProps,  PhotoProps,  UserProps } from "../types"
 
 
 export async function fetchUsers(): Promise<UserProps[]> {
@@ -27,7 +27,7 @@ export async function fetchUserById(userId: string): Promise<UserProps> {
   }
   return response.json();
 }
-  export async function fetchUserAlbums(userId: string) {
+  export async function fetchUserAlbums(userId: string): Promise<AlbumProps[]>  {
     const response = await fetch(`${process.env.NEXTAUTH_URL}/api/users/albums/${userId}`);
 
     if (!response.ok) {
@@ -36,9 +36,10 @@ export async function fetchUserById(userId: string): Promise<UserProps> {
     return response.json()
   }
 
-  export const fetchAlbumPhotos =async (albumId:string)=>{
+  export const fetchAlbumPhotos =async (albumId:string) =>{
 
     const response = await  fetch(`${process.env.NEXTAUTH_URL}/api/users/albums/photos/${albumId}`)
+
     if(!response.ok){
       throw new Error('Failed to fetch photos')
     } 
@@ -59,7 +60,7 @@ export const getAlbumById =async (album_id:string)=>{
       return response.json()
 
 }
-export const fetchPhotoById =async (photo_id:string)=>{
+export const fetchPhotoById =async (photo_id:string):Promise<PhotoProps>=>{
 
   const response = await  fetch(`${process.env.NEXTAUTH_URL}/api/users/albums/photo/${photo_id}`)
   if(!response.ok){
@@ -75,7 +76,20 @@ export const fetchPhotoById =async (photo_id:string)=>{
 
 export async function editPhotoTitle(photo_id: string, newTitle: string) {
  
-  console.log(`Updating  ${photo_id}:${newTitle}`);
+  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/users/albums/photo/update/${photo_id}`,{
+    method:'PATCH', headers:{
+      'Content-Type':'application/json'
+
+    },
+    body:JSON.stringify({newTitle})
+  })
+  
+  if (!response.ok) {
+    throw new Error('Failed to update photo title');
+  }
+ 
+  return response.json(); 
+
 
 }
 
