@@ -50,6 +50,7 @@ export const fetchAlbumPhotos = async (albumId: string) => {
 }
 
 export const getAlbumById = async (album_id: string) => {
+	
 	const response = await fetch(
 		`${process.env.NEXTAUTH_URL}/api/users/albums/album/${album_id}`
 	)

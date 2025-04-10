@@ -9,14 +9,18 @@ export async function GET(
 ) {
     const { album_id } = await params
 
+    // console.log('AlbumID>>>', album_id)
+
     try {
         await connectDb()
 
-        const albums = await Album.findOne({ albumId: Number(album_id) })
+        const album = await Album.findOne({ id: Number(album_id) })
             .select("id userId title")
             .lean()
 
-        return NextResponse.json(albums, { status: 200 })
+            console.log('Result', album)
+
+        return NextResponse.json(album, { status: 200 })
     } catch (error) {
         console.error("GET /api/users/albums/photo/ error:", error)
         return NextResponse.json({ error: "" }, { status: 500 })

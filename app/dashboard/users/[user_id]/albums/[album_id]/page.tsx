@@ -11,7 +11,7 @@ export default async function AlbumPhotosPage({
 
 	return (
 		<div className="w-full max-w-7xl px-4 lg:px-0 mx-auto   pt-24">
-			<AlbumProfile />
+			<AlbumProfile album_id={album_id} />
 			<hr className="mb-8 text-gray-300"></hr>
 
 			<AlbumPhotos album_id={album_id} />
