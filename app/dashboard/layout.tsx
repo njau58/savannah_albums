@@ -14,9 +14,9 @@ export default async function DashboardRootLayout({
 	}
 
 	return (
-		<>
-			{children}
+		<div>
+			<main>{children}</main>
 			<Toaster />
-		</>
+		</div>
 	)
 }

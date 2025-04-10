@@ -45,7 +45,10 @@ const PhotoDetails = ({ photo_id }: PhotoDetailsProps) => {
 		<div className="p-2 pt-4  border border-gray-300 rounded-3xl">
 			<div className="mb-8 px-2 bg relative h-56 w-full max-w-96 mx-auto flex justify-center">
 				{photoByIdQuery?.isLoading ? (
-					<div className="w-full h-full bg-gray-200 animate-pulse rounded-3xl"></div>
+					<div
+						data-testid="loading-skeleton"
+						className="w-full h-full bg-gray-200 animate-pulse rounded-3xl"
+					></div>
 				) : (
 					<Image
 						src={photoByIdQuery?.data?.url}
@@ -60,6 +63,7 @@ const PhotoDetails = ({ photo_id }: PhotoDetailsProps) => {
 
 			<div className=" border-gray-200 p-6 ">
 				<form
+					role="form"
 					onSubmit={handleSubmit}
 					className="flex flex-col sm:flex-row gap-4"
 				>

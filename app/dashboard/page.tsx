@@ -13,7 +13,7 @@ export default function DashboardPage() {
 
 	// console.log("session", session)
 	return (
-		<main className="py-24  w-full max-w-7xl px-4 mx-auto">
+		<div className="py-24  w-full max-w-7xl px-4 mx-auto">
 			<div className="flex flex-row gap-8  items-center justify-between mb-8">
 				<>
 					{!session && status === "loading" && <Loader />}
@@ -42,6 +42,6 @@ export default function DashboardPage() {
 				<hr className="text-gray-300 my-8"></hr>
 				<Users />
 			</div>
-		</main>
+		</div>
 	)
 }
