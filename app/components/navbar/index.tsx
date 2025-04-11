@@ -30,7 +30,7 @@ export default function Navbar() {
 		setIsMenuOpen((prev) => !prev)
 	}
 
-	console.log(session)
+	// console.log(session)
 
 	return (
 		<nav className="mx-auto px-4 py-4 bg-primary top-0 fixed z-50 w-full">

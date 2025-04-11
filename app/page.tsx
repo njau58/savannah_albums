@@ -9,9 +9,9 @@ export default function Home() {
 						Explore Users, Albums & Photos
 					</h1>
 					<p className="text-lg md:text-2xl text-gray-600 max-w-3xl mb-12">
-						A showcase application that demonstrates authorization, user
-						management with albums and photos. Built with Next.js, TypeScript,
-						MongoDB, NextAuth TailwindCSS and more.
+						A showcase application that demonstrates authentication &
+						interaction with users albums and photos. Built with Next.js,
+						TypeScript, MongoDB, NextAuth TailwindCSS and more.
 					</p>
 
 					<div className="flex flex-col sm:flex-row gap-4 mb-16">

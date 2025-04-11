@@ -2,8 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchAlbums, fetchUserById, fetchUsers, getAlbumById, fetchAlbumPhotos, fetchPhotoById, fetchUserAlbums } from "../actions";
 
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export function useServerActionsQuery(user_id?:string, album_id?:string|any, photo_id?:string|any) {
+export function useServerActionsQuery(user_id?:string, album_id?:string, photo_id?:string) {
   const usersQuery = useQuery({
     queryKey: ['users'],
     queryFn: () => fetchUsers(),
@@ -18,7 +17,7 @@ export function useServerActionsQuery(user_id?:string, album_id?:string|any, pho
     queryFn: () => user_id?fetchUserById(user_id):Promise.resolve(null), 
   });
   const userAlbumsQuery = useQuery({
-    queryKey: ['albums',user_id],
+    queryKey: ['user-albums',user_id],
     queryFn: () => user_id?fetchUserAlbums(user_id):Promise.resolve(null), 
   
   });

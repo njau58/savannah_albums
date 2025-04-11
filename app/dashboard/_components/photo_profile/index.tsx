@@ -8,9 +8,9 @@ import { Loader } from "../../../components/spinners"
 
 const PhotoProfile = () => {
 	const { photo_id } = useParams()
-	const { photoByIdQuery } = useServerActionsQuery("", "", photo_id)
+	const { photoByIdQuery } = useServerActionsQuery("", "", photo_id as string)
 
-	console.log("Image data", photoByIdQuery.data)
+	// console.log("Image data", photoByIdQuery.data)
 
 	return (
 		<div className="w-full flex items-center justify-between my-8 ">

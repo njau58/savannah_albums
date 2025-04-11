@@ -21,6 +21,7 @@ export interface CustomButtonProps extends React.ButtonHTMLAttributes<HTMLButton
     icon?:React.ReactNode,
     text_color?:string
     loading?:"github" | "google" |null|boolean
+  
     
 
 }
