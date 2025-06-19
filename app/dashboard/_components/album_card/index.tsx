@@ -9,9 +9,7 @@ export function AlbumCard({ id, title, userId }: AlbumProps) {
 	return (
 		<div className=" relative rounded-lg border border-gray-200  overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 bg-white ">
 			<div className="p-4">
-				<h3 className="font-medium text-lg truncate text-gray-900 dark:text-white">
-					{title}
-				</h3>
+				<h3 className="font-medium text-lg truncate text-gray-900 ">{title}</h3>
 
 				<div className="mt-8 flex justify-between items-center">
 					<IoMdImages className="text-4xl text-primary" />
